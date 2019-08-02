@@ -21,29 +21,19 @@
 	    <div class="navbar-nav ml-auto">
 	      <a class="nav-item nav-link active" href="{% url 'home' %}">Home</a>
         <a class="nav-item nav-link" href="{% url 'home' %}">Blog</a>
-		<a class="nav-item nav-link" href="{% url 'new' %}">글쓰기</a>
-		<a class="nav-item nav-link" href="{% url 'vote' %}">투표하기</a>
-		<a class="nav-item nav-link" href="{% url 'votenew' %}">투표만들기</a>
+        <a class="nav-item nav-link" href="{% url 'new' %}">글쓰기</a>
+        <a class="nav-item nav-link" href="{% url 'vote' %}">투표하기</a>
+        <a class="nav-item nav-link" href="{% url 'votenew' %}">투표만들기</a>
 			</div>
     </div>
 	</div>
 </nav>
-<br>
-<div class="container">
-	<form action="{% url 'create' %}">
-	  <h4>제목: </h4>
-	  <input type="text" name="title">
-	  <br>
-	  <br>
-	  <h4>본문: </h4>
-	  <textarea cols=40 rows=10 name="body"></textarea>
-	  <br>
-	  <br>
-	  <input class="btn btn-dark" type="submit" value="제출하기">
-  </form>
+
+<div class="container jumbotron">
+
+    <h1>{{ question.question_text1}} Vs {{ question.question_text2}}</h1>
+    <a href="{% url 'vote' %}">돌아가기</a>
 </div>
-
-
     
 </body>
 </html>
