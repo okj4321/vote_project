@@ -26,6 +26,8 @@ urlpatterns = [
     path('blog/create/', blog.views.create, name='create'),
     path('vote/', vote.views.vote, name='vote'),
     path('vote/<int:question_id>/', vote.views.detail, name="votedetail"),
+    path('vote/<int:question_id>/1', vote.views.vote_vote1, name="vote_vote"),
+    path('vote/<int:question_id>/2', vote.views.vote_vote2, name="vote_vote"),
     path('vote/new/', vote.views.new, name='votenew'),
     path('vote/create/',vote.views.voteCreate, name='voteCreate'),
 ]

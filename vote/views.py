@@ -1,23 +1,25 @@
 from django.utils import timezone
 from django.shortcuts import render, get_object_or_404, redirect
 
-from .models import Question,Choice
+from .models import Question
 
 # Create your views here.
 
 def vote(request):
-    # choices = Choice.objects.filter(request.choice_text).values_list()
-    # if(choice == Choice.object.filter(request.choice_text))
-    #     choice.choice_text = request.
-    #     choice.votes = choice.votes + 1
-    #     choice.question = request.question
     questions = Question.objects
     return render(request, 'vote/vote.html', {'questions': questions})
 
-def vote_vote(request,question_text):
-    question_text = get_object_or_404(Question, pk=question_text)
-    return render(request, 'vote/vote_vote.html')
+def vote_vote1(request,question_id):
+    question_detail = get_object_or_404(Question, pk=question_id)
+    question_detail.votes_qestion1 = question_detail.votes_qestion1+1
+    question_detail.save()
+    return render(request, 'vote/vote_vote.html',{'question': question_detail})
 
+def vote_vote2(request,question_id):
+    question_detail = get_object_or_404(Question, pk=question_id)
+    question_detail.votes_qestion2 = question_detail.votes_qestion2+1
+    question_detail.save()
+    return render(request, 'vote/vote_vote.html',{'question': question_detail})
 
 def detail(request, question_id):
     question_detail = get_object_or_404(Question, pk=question_id)
